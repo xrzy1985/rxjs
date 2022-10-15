@@ -5,6 +5,7 @@ export const constants: Constants = {
     comments: 'comments',
     errorMessages: {
         email: 'You must enter a valid email address to continue',
+        name: 'Your name is required to sign up',
         password: 'You must enter a valid password to continue'
     },
     photos: 'photos',

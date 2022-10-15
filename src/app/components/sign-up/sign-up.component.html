@@ -1,1 +1,31 @@
-<p>sign-up works!</p>
+<app-toolbar title="RxJs"></app-toolbar>
+<div class="sign-up">
+    <mat-form-field appearance="legacy" class="name-field">
+        <mat-label>Name</mat-label>
+        <input matInput
+                [formControl]="name"
+                type="email"
+                placeholder="Name" required>
+        <mat-error *ngIf="name.invalid">{{getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="legacy" class="email-field">
+        <mat-label>Email</mat-label>
+        <input matInput
+                [formControl]="email"
+                type="email"
+                placeholder="Email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="legacy" class="password-field">
+        <mat-label>Password</mat-label>
+        <input matInput
+                [formControl]="password"
+                type="password"
+                placeholder="Password" required>
+        <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="signUp" (click)="signUp()">Sign Up</button>
+</div>
+<router-outlet></router-outlet>

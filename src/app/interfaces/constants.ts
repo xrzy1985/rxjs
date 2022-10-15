@@ -11,5 +11,6 @@ export interface Constants {
 
 interface ErrorMessages {
   email: string;
+  name: string;
   password: string;
 }

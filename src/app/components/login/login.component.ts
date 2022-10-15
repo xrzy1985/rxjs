@@ -24,18 +24,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return constants.errorMessages.email;
+  getErrorMessage(key: string) {
+    switch (key) {
+      case 'email':
+        return constants.errorMessages.email;
+        break;
+      case 'password':
+        return constants.errorMessages.password;
+        break;
+      default:
+        return '';
+        break;
     }
-    if (this.password.hasError('required')) {
-      return constants.errorMessages.password;
-    }
-    return '';
-  }
-
-  signUp() {
-    // add routing, but for now, just display different page
-    
   }
 }
