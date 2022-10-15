@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // interfaces
 import { Albums } from '../../interfaces/albums';
@@ -8,21 +8,23 @@ import { HttpService } from '../../services/http/http-service.service';
 @Component({
   selector: 'app-main',
   template: `
-  <app-toolbar title="Toolbar"></app-toolbar>
-  <div *ngFor="let album of albums$">
-      {{ album.title }}
-  </div>
+    <app-toolbar title="RxJs"></app-toolbar>
+    <div class="main">
+      <div *ngFor="let album of albums$">
+        {{ album.title }}
+      </div>
+    </div>
   `,
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-
   constructor(private http: HttpService) {}
 
   public albums$: Albums[] = [];
+  @Input() title = '';
 
   ngOnInit(): void {
-    this.http.returnAlbums().subscribe(albums => {
+    this.http.returnAlbums().subscribe((albums) => {
       if (albums?.length) {
         this.albums$ = albums;
       }
