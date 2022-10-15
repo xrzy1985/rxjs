@@ -33,4 +33,9 @@ export class LoginComponent implements OnInit {
     }
     return '';
   }
+
+  signUp() {
+    // add routing, but for now, just display different page
+    
+  }
 }

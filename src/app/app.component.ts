@@ -4,7 +4,7 @@ import { LoginService } from './services/login/login.service';
 @Component({
   selector: 'app-root',
   template: `
-    <app-entry></app-entry>
+    <router-outlet></router-outlet>
   `,
   styleUrls: []
 })

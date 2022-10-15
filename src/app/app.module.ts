@@ -15,9 +15,10 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginComponent } from './components/login/login.component';
 import { EntryComponent } from './components/entry/entry.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, ToolbarComponent, LoginComponent, EntryComponent],
+  declarations: [AppComponent, MainComponent, ToolbarComponent, LoginComponent, EntryComponent, SignUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
