@@ -8,7 +8,6 @@ import { HttpService } from '../../services/http/http-service.service';
 @Component({
   selector: 'app-main',
   template: `
-    <app-toolbar title="RxJs"></app-toolbar>
     <div class="main">
       <div *ngFor="let album of albums$">
         {{ album.title }}

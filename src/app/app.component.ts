@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import { LoginService } from './services/login/login.service';
 
 @Component({
   selector: 'app-root',
   template: `
-    <app-main *ngIf="isLoggedIn" title="title"></app-main>
-    <app-login *ngIf="!isLoggedIn"></app-login>
+    <app-entry></app-entry>
   `,
   styleUrls: []
 })
 export class AppComponent {
-  title = 'rxjs-tutorial';
-  isLoggedIn = false;
+  constructor(private login: LoginService) {
+    this.title = 'rxjs-tutorial';
+  }
+
+  title: string;
 }

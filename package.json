@@ -1,6 +1,6 @@
 {
   "name": "rxjs-tutorial",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --port=4200",
@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",
+    "@angular/cdk": "^14.2.5",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -19,6 +20,7 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "material-design-icons": "^3.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
