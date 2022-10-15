@@ -1,5 +1,6 @@
-import { Component, DoCheck, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LoginService } from '../../services/login/login.service';
+import { BehaviorSubject } from 'rxjs';
 // constants
 
 @Component({
@@ -16,6 +17,7 @@ import { LoginService } from '../../services/login/login.service';
         <span class="spacer"></span>
         <button mat-raised-button
           aria-label="log out button"
+          (click)="logout()"
           color="warn"
           *ngIf="loggedIn">
           Log Out
@@ -27,16 +29,18 @@ import { LoginService } from '../../services/login/login.service';
 export class ToolbarComponent {
 
   constructor(private loginService: LoginService) {
-    this.loggedIn = false;
+    this.loginService.getLoggedInStatus().subscribe((status) => {
+      this.loggedIn = status;
+    });
     this.name = '';
     this.title = '';
   }
 
-  ngDoCheck() {
-    this.loggedIn = this.loginService.getUserLoggedInStatus();
-  }
-
-  loggedIn: boolean;
-  @Input() title: string;
+  loggedIn: boolean = false;
   name: string;
+  @Input() title: string;
+
+  logout() {
+    this.loginService.setLoggedInStatus(false);
+  }
 }

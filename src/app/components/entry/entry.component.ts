@@ -9,16 +9,14 @@ import { LoginService } from '../../services/login/login.service';
 export class EntryComponent implements OnInit {
 
   constructor(private loginService: LoginService) {
-    this.isUserLoggedIn = this.loginService.getUserLoggedInStatus();
+    this.loginService.getLoggedInStatus().subscribe((status) => {
+      this.loggedIn = status;
+    });
   }
 
-  isUserLoggedIn: boolean;
+  loggedIn: boolean = false;
 
   ngOnInit(): void {
-  }
-
-  isLoggedIn(): boolean {
-    return this.loginService.getUserLoggedInStatus();
   }
 
 }

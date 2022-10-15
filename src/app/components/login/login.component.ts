@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login/login.service';
+import { constants } from '../../constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -18,18 +19,17 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log(this.email.value, this.password.value);
     if (!this.email.errors && !this.password.errors) {
-      this.loginService.setUserLoggedInStatus(true);
+      this.loginService.setLoggedInStatus(true);
     }
   }
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'You must enter a valid email address';
+      return constants.errorMessages.email;
     }
     if (this.password.hasError('required')) {
-      return 'You must enter a valid password';
+      return constants.errorMessages.password;
     }
     return '';
   }
