@@ -1,4 +1,6 @@
-export const constants = {
+import { Constants } from '../interfaces/constants';
+
+export const constants: Constants = {
     albums: 'albums',
     comments: 'comments',
     photos: 'photos',
@@ -7,3 +9,5 @@ export const constants = {
     url: 'https://jsonplaceholder.typicode.com',
     users: 'users'
 }
+
+export const name = 'James Patterson';
