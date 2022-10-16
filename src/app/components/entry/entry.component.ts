@@ -5,6 +5,7 @@ import { LoginService } from '../../services/login/login.service';
   selector: 'app-entry',
   template: `
     <app-toolbar title="RxJs"></app-toolbar>
+    <app-time></app-time>
     <app-login *ngIf="!loggedIn"></app-login>
     <app-main *ngIf="loggedIn" title="title"></app-main>
   `,

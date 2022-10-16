@@ -16,6 +16,10 @@ export abstract class ErrorHandler {
     private readonly _nameForm: string;
     private readonly _passwordForm: string;
 
+    protected throwException(error: string): never {
+        throw new Error(`Error: ${error ? error : 'Uncaught exception'}`)
+    }
+
     protected getErrorMessage(key: string) {
         switch (key) {
             // case '':

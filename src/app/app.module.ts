@@ -17,9 +17,10 @@ import { EntryComponent } from './components/entry/entry.component';
 import { MainComponent } from './components/main/main.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { TimeComponent } from './components/clock/time/time.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, ToolbarComponent, LoginComponent, EntryComponent, SignUpComponent],
+  declarations: [AppComponent, MainComponent, ToolbarComponent, LoginComponent, EntryComponent, SignUpComponent, TimeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
