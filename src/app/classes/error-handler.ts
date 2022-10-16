@@ -17,7 +17,7 @@ export abstract class ErrorHandler {
     private readonly _passwordForm: string;
 
     protected throwException(error: string): never {
-        throw new Error(`Error: ${error ? error : 'Uncaught exception'}`)
+        throw new Error(`${Errors.base}: ${error ? error : Errors.uncaught}`)
     }
 
     protected getErrorMessage(key: string) {
@@ -31,15 +31,23 @@ export abstract class ErrorHandler {
 
     protected getFormFieldErrorMessage(key: string) {
         switch (key) {
-            case 'email':
+            case Errors.email:
                 return this._emailForm;
-            case 'name':
+            case Errors.name:
                 return this._nameForm;
-            case 'password':
+            case Errors.password:
                 return this._passwordForm;
             default:
                 return this._defaultForm;
             break;
         }
     }
+}
+
+enum Errors {
+    base = 'Error',
+    email = 'email',
+    name = 'name',
+    password = 'password',
+    uncaught = 'Uncaught exception'
 }
