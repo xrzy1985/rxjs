@@ -6,7 +6,7 @@
                 [formControl]="name"
                 type="email"
                 placeholder="Name" required>
-        <mat-error *ngIf="name.invalid">{{getErrorMessage('name')}}</mat-error>
+        <mat-error *ngIf="name.invalid">{{getFormFieldErrorMessage('name')}}</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="legacy" class="email-field">
@@ -15,7 +15,7 @@
                 [formControl]="email"
                 type="email"
                 placeholder="Email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+        <mat-error *ngIf="email.invalid">{{getFormFieldErrorMessage('email')}}</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="legacy" class="password-field">
@@ -24,7 +24,7 @@
                 [formControl]="password"
                 type="password"
                 placeholder="Password" required>
-        <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
+        <mat-error *ngIf="password.invalid">{{getFormFieldErrorMessage('password')}}</mat-error>
     </mat-form-field>
     <button mat-raised-button class="sign-up-button" (click)="signUp()">Sign Up</button>
 </div>

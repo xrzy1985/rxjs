@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login/login.service';
-import { constants } from '../../constants/constants';
 import { environment } from '../../../environments/environment';
+import { ErrorHandler } from '../../classes/error-handler';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  constructor(private loginService: LoginService) {}
+export class LoginComponent extends ErrorHandler {
+  constructor(private loginService: LoginService) {
+    super();
+  }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
+  protected email = new FormControl('', [Validators.required, Validators.email]);
+  protected password = new FormControl('', [Validators.required]);
 
-  ngOnInit(): void {}
-
-  login(): void {
+  protected login(): void {
     // replace with auth and api call to firebase
     if (
       environment.auth.email === this.email.value &&
@@ -26,18 +26,6 @@ export class LoginComponent implements OnInit {
       !this.password.errors
     ) {
       this.loginService.setLoggedInStatus(true);
-    }
-  }
-
-  getErrorMessage(key: string) {
-    switch (key) {
-      case 'email':
-        return constants.errorMessages.email;
-      case 'password':
-        return constants.errorMessages.password;
-      default:
-        return constants.errorMessages.default;
-      break;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from '../../services/login/login.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { LoginService } from '../../services/login/login.service';
   `,
   styleUrls: []
 })
-export class EntryComponent implements OnInit {
+export class EntryComponent {
 
   constructor(private loginService: LoginService) {
     this.loginService.getLoggedInStatus().subscribe((status) => {
@@ -18,9 +18,6 @@ export class EntryComponent implements OnInit {
     });
   }
 
-  loggedIn: boolean = false;
-
-  ngOnInit(): void {
-  }
+  protected loggedIn: boolean = false;
 
 }

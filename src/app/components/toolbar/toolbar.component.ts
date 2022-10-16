@@ -36,8 +36,8 @@ export class ToolbarComponent {
     this.title = '';
   }
 
-  loggedIn: boolean = false;
-  name: string;
+  protected loggedIn: boolean = false;
+  protected name: string;
   @Input() title: string;
 
   logout() {

@@ -11,6 +11,11 @@ export interface Constants {
 
 interface ErrorMessages {
   default: string;
+  form: FormErrors;
+}
+
+interface FormErrors {
+  default: string;
   email: string;
   name: string;
   password: string;

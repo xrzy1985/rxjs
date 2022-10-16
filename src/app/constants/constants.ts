@@ -4,10 +4,13 @@ export const constants: Constants = {
     albums: 'albums',
     comments: 'comments',
     errorMessages: {
-        default: 'You must enter a valid entry',
-        email: 'You must enter a valid email address to continue',
-        name: 'Your name is required to sign up',
-        password: 'You must enter a valid password to continue',
+        default: 'There was an error',
+        form: {
+            default: 'You must enter a valid entry',
+            email: 'You must enter a valid email address to continue',
+            name: 'Your name is required to sign up',
+            password: 'You must enter a valid password to continue'
+        }
     },
     photos: 'photos',
     posts: 'posts',

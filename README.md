@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `npm run start` for a dev server that will open `localhost:4200`
+Run `npm run this` for a dev server that will open `localhost:4200`
 
 ## Build
 

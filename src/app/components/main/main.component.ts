@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 // interfaces
 import { Albums } from '../../interfaces/albums';
@@ -16,17 +16,15 @@ import { HttpService } from '../../services/http/http-service.service';
   `,
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
-  constructor(private http: HttpService) {}
-
-  public albums$: Albums[] = [];
-  @Input() title = '';
-
-  ngOnInit(): void {
+export class MainComponent {
+  constructor(private http: HttpService) {
     this.http.returnAlbums().subscribe((albums) => {
       if (albums?.length) {
         this.albums$ = albums;
       }
     });
   }
+
+  protected albums$: Albums[] = [];
+  @Input() title = '';
 }
