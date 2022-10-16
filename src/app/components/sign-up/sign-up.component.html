@@ -1,5 +1,5 @@
 <app-toolbar title="RxJs"></app-toolbar>
-<div class="sign-up">
+<div class="form-field sign-up">
     <mat-form-field appearance="legacy" class="name-field">
         <mat-label>Name</mat-label>
         <input matInput
@@ -26,6 +26,6 @@
                 placeholder="Password" required>
         <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
     </mat-form-field>
-    <button mat-raised-button class="signUp" (click)="signUp()">Sign Up</button>
+    <button mat-raised-button class="sign-up-button" (click)="signUp()">Sign Up</button>
 </div>
 <router-outlet></router-outlet>
