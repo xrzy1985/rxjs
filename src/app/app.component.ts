@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from './services/login/login.service';
+import { environment } from './../environments/environment';
 
 @Component({
   selector: 'app-root',

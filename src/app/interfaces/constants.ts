@@ -10,6 +10,7 @@ export interface Constants {
 }
 
 interface ErrorMessages {
+  default: string;
   email: string;
   name: string;
   password: string;

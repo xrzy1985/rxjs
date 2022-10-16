@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import * as CryptoJS from 'crypto-js';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
   constructor() {}
 
   loggedInStatus$: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -16,5 +17,26 @@ export class LoginService {
 
   public getLoggedInStatus(): Observable<boolean> {
     return this.loggedInStatus$.asObservable();
+  }
+
+  public encrypted(value: string) {
+    return CryptoJS.AES.encrypt(
+      value,
+      CryptoJS.enc.Utf8.parse(environment.key),
+      { iv: CryptoJS.enc.Utf8.parse(environment.salt) }
+    ).toString();
+  }
+
+  public decrypted(value: string) {
+    var cipherParams = CryptoJS.lib.CipherParams.create({
+      ciphertext: CryptoJS.enc.Base64.parse(value),
+    });
+    return CryptoJS.AES.decrypt(
+      cipherParams,
+      CryptoJS.enc.Utf8.parse(environment.key),
+      {
+        iv: CryptoJS.enc.Utf8.parse(environment.salt),
+      }
+    ).toString(CryptoJS.enc.Utf8);
   }
 }
