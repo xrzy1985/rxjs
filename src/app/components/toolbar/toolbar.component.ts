@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
   selector: 'app-toolbar',
   template: `
     <p>
-      <mat-toolbar color="primary">
+      <mat-toolbar class="toolbar">
         <button mat-icon-button
           class="menu-icon" 
           aria-label="Menu icon">
