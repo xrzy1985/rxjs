@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // components
 import { AppComponent } from './app.component';
@@ -18,9 +19,19 @@ import { MainComponent } from './components/main/main.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TimeComponent } from './components/time/time.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, ToolbarComponent, LoginComponent, EntryComponent, SignUpComponent, TimeComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    ToolbarComponent,
+    LoginComponent,
+    EntryComponent,
+    SignUpComponent,
+    TimeComponent,
+    NotFoundComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +41,7 @@ import { TimeComponent } from './components/time/time.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatSidenavModule,
     MatToolbarModule,
     HttpClientModule,
     BrowserAnimationsModule,

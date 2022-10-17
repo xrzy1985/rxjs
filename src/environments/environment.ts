@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   key: 'b75524255a7f54d2726a951bb39204df',
   salt: '1583288699248111',
+  title: 'RxJs',
   auth: {
     id: 1,
     name: 'James Patterson',

@@ -26,5 +26,4 @@ export class MainComponent {
   }
 
   protected albums$: Albums[] = [];
-  @Input() title = '';
 }

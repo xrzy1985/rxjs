@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LoginService } from '../../services/login/login.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { SideNavService } from '../../services/side-nav/side-nav.service';
 // constants
 
 @Component({
@@ -9,9 +10,13 @@ import { BehaviorSubject } from 'rxjs';
     <p>
       <mat-toolbar class="toolbar">
         <button mat-icon-button
-          class="menu-icon" 
-          aria-label="Menu icon">
-          <mat-icon fontIcon="menu"></mat-icon>
+          aria-label="side navigation icon"
+          class="side-nav-icon"
+          (click)="sideNavService.setIsOpen()">
+          <mat-icon
+            aria-label="side navigation icon button"
+            fontIcon="menu">
+          </mat-icon>
         </button>
         <span>{{ title }}</span>
         <span class="spacer"></span>
@@ -28,7 +33,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ToolbarComponent {
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, protected sideNavService: SideNavService) {
     this.loginService.getLoggedInStatus().subscribe((status) => {
       this.loggedIn = status;
     });
