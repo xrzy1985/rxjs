@@ -6,9 +6,7 @@ import { Users } from '../../interfaces/users';
 })
 export class UserService {
 
-  constructor() {
-    this.user = {id: -1, name: '', email: ''};
-  }
+  constructor() {}
 
-  let user: Users;
+  private user: Users = { id: -1, name: '', email: '' };
 }
