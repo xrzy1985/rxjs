@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, filter, tap } from 'rxjs';
 // constants
 import { constants } from '../../constants/constants';
 // interfaces
@@ -37,8 +37,17 @@ export class HttpService {
       .subscribe((resp: Albums[]) => this.albums$.next(resp));
   }
 
+  // rxjs filter
   public returnAlbums(): Observable<Albums[]> {
-    return this.albums$.asObservable();
+    return this.albums$.asObservable().pipe(
+      filter((data) => {
+        for (const item of data) {
+          item.title =
+            (item.title).charAt(0).toUpperCase() + (item.title).slice(1);
+        }
+        return data;
+      })
+    );
   }
 
   public getComments() {
@@ -49,8 +58,23 @@ export class HttpService {
       });
   }
 
+  // rxjs map
   public returnComments(): Observable<Comments[]> {
-    return this.todos$.asObservable();
+    return this.comments$.asObservable().pipe(
+      map((data: Comments[]) => {
+        return data.map((element: Comments) => {
+          return {
+            id: element.id,
+            email: element.email,
+            postId: element.postId,
+            comment: {
+              title: element.name,
+              body: element.body,
+            },
+          };
+        });
+      })
+    );
   }
 
   public getPhotos() {
@@ -74,7 +98,7 @@ export class HttpService {
   }
 
   public returnPosts(): Observable<Posts[]> {
-    return this.todos$.asObservable();
+    return this.posts$.asObservable();
   }
 
   public getTodos() {

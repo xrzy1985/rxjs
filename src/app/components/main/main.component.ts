@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 // interfaces
 import { Albums } from '../../interfaces/albums';
+import { Comments } from '../../interfaces/comments';
 // services
 import { HttpService } from '../../services/http/http-service.service';
 
@@ -23,7 +23,13 @@ export class MainComponent {
         this.albums$ = albums;
       }
     });
+    this.http.returnComments().subscribe((comments) => {
+      if (comments?.length) {
+        this.comments$ = comments;
+      }
+    });
   }
 
   protected albums$: Albums[] = [];
+  protected comments$: Comments[] = [];
 }

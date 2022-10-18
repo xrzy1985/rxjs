@@ -1,7 +1,13 @@
 export interface Comments {
-  body: string;
+  body?: string;
   email: string;
   id: number;
-  name: string;
+  name?: string;
   postId: number;
+  comment?: Comment
+}
+
+interface Comment {
+  title?: string;
+  body?: string;
 }
