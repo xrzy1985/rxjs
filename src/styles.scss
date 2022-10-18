@@ -48,10 +48,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .drawer-container {
     width: 100vw;
     height: 100vh;
-  }
+}
   
-  mat-drawer-content {
+mat-drawer-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-  }
+}
+
+.side-nav {
+    margin: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-nav-header {
+    height: 56px;
+    background-color: #032E7A;
+}
+
+.mat-drawer-inner-container {
+    background-color: #f3f3f3;
+}

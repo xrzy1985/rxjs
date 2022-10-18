@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../../services/login/login.service';
 import { environment } from '../../../environments/environment';
+import { LoginService } from '../../services/login/login.service';
 import { SideNavService } from '../../services/side-nav/side-nav.service';
 
 @Component({
@@ -9,7 +9,15 @@ import { SideNavService } from '../../services/side-nav/side-nav.service';
     <mat-drawer-container class="drawer-container">
     <mat-drawer [mode]="'side'"
       opened="{{sideNavService.getIsOpen()}}">
-      INFORMATION
+      <div class="side-nav-header"></div>
+      <div class="side-nav">
+        <br>
+        <button mat-button>{{home}}</button>
+        <br>
+        <button mat-button>{{about}}</button>
+        <br>
+        <button mat-button>{{profile}}</button>
+      </div>
     </mat-drawer>
       <mat-drawer-content>
         <app-toolbar title="{{title}}"></app-toolbar>
@@ -28,6 +36,9 @@ export class EntryComponent {
     });
   }
 
+  protected about: string = environment.sideNav.about;
+  protected home: string = environment.sideNav.home;
+  protected profile: string = environment.sideNav.profile;
   protected loggedIn: boolean = false;
   protected title: string = environment.title;
 
