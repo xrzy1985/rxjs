@@ -7,3 +7,11 @@ img {
     max-height: 100%;
     display: block;
 }
+
+.accordion {
+    margin: 10vw;
+
+    .accordion-panel {
+        margin: 0 0 10vw;
+    }
+}

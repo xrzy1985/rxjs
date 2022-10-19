@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { LoginService } from '../../services/login/login.service';
 import { SideNavService } from '../../services/side-nav/side-nav.service';
+import { TestingService } from '../../services/rxjs-testing/testing.service';
 
 @Component({
   selector: 'app-entry',
@@ -30,7 +31,8 @@ import { SideNavService } from '../../services/side-nav/side-nav.service';
 export class EntryComponent {
   constructor(
     private loginService: LoginService,
-    protected sideNavService: SideNavService
+    protected sideNavService: SideNavService,
+    private testingService: TestingService
   ) {
     this.loginService.getLoggedInStatus().subscribe((status) => {
       this.loggedIn = status;
