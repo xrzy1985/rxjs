@@ -1,0 +1,135 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="albumsPanel = true"
+                            (closed)="albumsPanel = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Expand 
+            </mat-panel-title>
+            <mat-panel-description>
+                the albums from an observable.
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="main">
+            <div *ngFor="let album of albums$">
+                <div style="text-align: center;">
+                    <b>{{ album?.userId }}</b>: {{ album?.title }}
+                </div>
+                <hr>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <hr>
+    <mat-expansion-panel (opened)="commentsPanel = true"
+                            (closed)="commentsPanel = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Expand 
+            </mat-panel-title>
+            <mat-panel-description>
+                the comments from an observable.
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="main">
+            <div *ngFor="let comment of comments$">
+                <div style="text-align: center;">
+                    <b>&#167;</b> {{ comment.comment?.title }}
+                </div>
+                <div>
+                    {{ comment.comment?.body }}
+                </div>
+                <hr>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <hr>
+    <mat-expansion-panel (opened)="photosPanel = true"
+                            (closed)="photosPanel = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Expand 
+            </mat-panel-title>
+            <mat-panel-description>
+                the photos from an observable.
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="main">
+            <div *ngFor="let photo of photos$">
+                <div style="text-align: center;">
+                    <div style="text-align: center;">
+                        <b>{{ photo?.title }}</b>
+                    </div>
+                    <img src="{{ photo?.url }}" alt="photo from {{photo.id}}">
+                </div>
+                <hr>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <hr>
+    <mat-expansion-panel (opened)="postsPanel = true"
+                            (closed)="postsPanel = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Expand 
+            </mat-panel-title>
+            <mat-panel-description>
+                the posts from an observable.
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="main">
+            <div *ngFor="let post of posts$">
+                <div style="text-align: center;">
+                    <div style="text-align: center;">
+                        <b>{{ post?.title }}</b>
+                    </div>
+                    <br>
+                    {{ post?.body }}
+                </div>
+                <br>
+                <hr>
+                <br>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <hr>
+    <mat-expansion-panel (opened)="todosPanel = true"
+                            (closed)="todosPanel = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Expand 
+            </mat-panel-title>
+            <mat-panel-description>
+                the todos from an observable.
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="main">
+            <div *ngFor="let todo of todos$">
+                <div>
+                    <b>&bull; </b>{{ todo?.title }} 
+                    <span *ngIf="todo.completed"><b> - Complete</b></span>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <hr>
+    <mat-expansion-panel (opened)="usersPanel = true"
+                            (closed)="usersPanel = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Expand 
+            </mat-panel-title>
+            <mat-panel-description>
+                the users from an observable.
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="main">
+            <div *ngFor="let user of users$">
+                <div>{{user?.name}}</div>
+                <div>{{user?.email}}</div>
+                <div>{{user?.phone}}</div>
+                <hr>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <hr>
+</mat-accordion>
