@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, map, filter, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, filter } from 'rxjs';
 // constants
 import { constants } from '../../constants/constants';
 // interfaces
@@ -10,19 +10,13 @@ import { Posts } from '../../interfaces/posts';
 import { Photos } from '../../interfaces/photos';
 import { Todos } from '../../interfaces/todos';
 import { Users } from '../../interfaces/users';
+import { LoginService } from '../login/login.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
-  constructor(private http: HttpClient) {
-    this.getAlbums();
-    this.getComments();
-    this.getPhotos();
-    this.getPosts();
-    this.getTodos();
-    this.getUsers();
-  }
+  constructor(private http: HttpClient, private loginService: LoginService) {}
 
   public albums$: BehaviorSubject<any> = new BehaviorSubject([]);
   public comments$: BehaviorSubject<any> = new BehaviorSubject([]);
@@ -31,7 +25,16 @@ export class HttpService {
   public todos$: BehaviorSubject<any> = new BehaviorSubject([]);
   public users$: BehaviorSubject<any> = new BehaviorSubject([]);
 
-  public getAlbums() {
+  public setup(): void {
+    this.getAlbums();
+    this.getComments();
+    this.getPhotos();
+    this.getPosts();
+    this.getTodos();
+    this.getUsers();
+  }
+
+  public getAlbums(): void {
     this.http
       .get<Albums[]>(`${constants.url}/${constants.albums}`)
       .subscribe((resp: Albums[]) => this.albums$.next(resp));
@@ -50,7 +53,7 @@ export class HttpService {
     );
   }
 
-  public getComments() {
+  public getComments(): void {
     this.http
       .get<Comments[]>(`${constants.url}/${constants.comments}`)
       .subscribe((resp: Comments[]) => {
@@ -77,7 +80,7 @@ export class HttpService {
     );
   }
 
-  public getPhotos() {
+  public getPhotos(): void {
     this.http
       .get<Photos[]>(`${constants.url}/${constants.photos}`)
       .subscribe((resp: Photos[]) => {
@@ -89,7 +92,7 @@ export class HttpService {
     return this.photos$.asObservable();
   }
 
-  public getPosts() {
+  public getPosts(): void {
     this.http
       .get<Posts[]>(`${constants.url}/${constants.posts}`)
       .subscribe((resp: Posts[]) => {
@@ -101,7 +104,7 @@ export class HttpService {
     return this.posts$.asObservable();
   }
 
-  public getTodos() {
+  public getTodos(): void {
     this.http
       .get<Todos[]>(`${constants.url}/${constants.todos}`)
       .subscribe((resp: Todos[]) => {
@@ -113,7 +116,7 @@ export class HttpService {
     return this.todos$.asObservable();
   }
 
-  public getUsers() {
+  public getUsers(): void {
     this.http
       .get<Users[]>(`${constants.url}/${constants.users}`)
       .subscribe((resp: Users[]) => {
@@ -122,6 +125,13 @@ export class HttpService {
   }
 
   public returnUsers(): Observable<Users[]> {
-    return this.users$.asObservable();
+    return this.users$.asObservable()
+      .pipe(filter(data => {
+        for (const item of data) {
+          item.password = this.loginService.encrypted('password');
+        }
+        return data;
+      })
+    )
   }
 }

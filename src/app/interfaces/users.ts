@@ -7,6 +7,7 @@ export interface Users {
   phone?: string;
   username?: string;
   website?: string;
+  password?: string;
 }
 
 interface Company {

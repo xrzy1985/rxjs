@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from './../environments/environment';
+import { HttpService } from './services/http/http-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,9 @@ import { environment } from './../environments/environment';
   styleUrls: [],
 })
 export class AppComponent {
-  constructor() {
+  constructor(private http: HttpService) {
     this.title = 'rxjs-tutorial';
+    this.http.setup();
   }
 
   title: string;
