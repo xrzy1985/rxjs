@@ -3,6 +3,9 @@
 
 module.exports = function (config) {
   config.set({
+    karma: 'start',
+    browserNoActivityTimeout: 40000000,
+    random: true,
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [

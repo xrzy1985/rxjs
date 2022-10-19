@@ -11,15 +11,20 @@ export class LoginService {
 
   loggedInStatus$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  public setLoggedInStatus(status: boolean): void {
-    this.loggedInStatus$.next(status);
+  public setLoggedInStatus(status: boolean | null | undefined): void {
+    if (status) {
+      this.loggedInStatus$.next(status);
+    }
   }
 
   public getLoggedInStatus(): Observable<boolean> {
     return this.loggedInStatus$.asObservable();
   }
 
-  public encrypted(value: string) {
+  public encrypted(value: string | null | undefined) {
+    if (value === null || value === undefined) {
+      return '';
+    }
     return CryptoJS.AES.encrypt(
       value,
       CryptoJS.enc.Utf8.parse(environment.key),
@@ -27,7 +32,10 @@ export class LoginService {
     ).toString();
   }
 
-  public decrypted(value: string) {
+  public decrypted(value: string | null | undefined) {
+    if (value === null || value === undefined) {
+      return '';
+    }
     var cipherParams = CryptoJS.lib.CipherParams.create({
       ciphertext: CryptoJS.enc.Base64.parse(value),
     });
