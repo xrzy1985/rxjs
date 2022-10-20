@@ -39,7 +39,6 @@ fdescribe('ToolbarComponent', () => {
       it('should expect the component variables to have specific values', () => {
         expect(component.title).toBe('');
         expect(component['name']).toBe('');
-        console.log(component);
       });
 
       it('should expect logged in status to be false', () => {
