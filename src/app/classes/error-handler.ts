@@ -1,4 +1,5 @@
 import { constants } from '../constants/constants';
+import { Errors } from '../enums/errors.enum';
 
 export abstract class ErrorHandler {
 
@@ -42,12 +43,4 @@ export abstract class ErrorHandler {
             break;
         }
     }
-}
-
-enum Errors {
-    base = 'Error',
-    email = 'email',
-    name = 'name',
-    password = 'password',
-    uncaught = 'Uncaught exception'
 }
