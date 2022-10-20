@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,6 @@ export class SideNavService {
   }
 
   public setIsOpen(status?: boolean): void {
-    this.isOpen = status ? status : !this.isOpen;
+    this.isOpen = status !== undefined ? status : !this.isOpen;
   }
 }

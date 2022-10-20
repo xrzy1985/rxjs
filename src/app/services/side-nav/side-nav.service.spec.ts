@@ -17,6 +17,7 @@ describe('SideNavService', () => {
 
       it('should instantiate isOpen', () => {
         expect(service.isOpen).toBeDefined();
+        expect(service.isOpen).toBeFalse();
       });
     })
     

@@ -7,8 +7,9 @@ import { SideNavService } from '../../services/side-nav/side-nav.service';
   selector: 'app-entry',
   template: `
     <mat-drawer-container class="drawer-container">
-      <mat-drawer [mode]="'side'" opened="{{ sideNavService.getIsOpen() }}">
-        <div class="side-nav-header"></div>
+      <mat-drawer class="drawer"
+                  [mode]="'side'" 
+                  opened="{{ sideNavService.getIsOpen() }}">
         <div class="side-nav">
           <br />
           <button mat-button>{{ home }}</button>
