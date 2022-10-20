@@ -17,7 +17,7 @@ export class LoginComponent extends ErrorHandler {
   protected email = new FormControl('', [Validators.required, Validators.email]);
   protected password = new FormControl('', [Validators.required]);
 
-  protected login(): void {
+  public login(): void {
     // replace with auth and api call to firebase
     if (
       environment.auth.email === this.email.value &&

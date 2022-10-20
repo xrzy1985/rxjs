@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-fdescribe('EntryComponent', () => {
+describe('EntryComponent', () => {
   let component: EntryComponent;
   let fixture: ComponentFixture<EntryComponent>;
   let loginService: LoginService;
