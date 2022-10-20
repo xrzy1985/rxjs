@@ -19,7 +19,6 @@ export class HttpService {
   constructor(private http: HttpClient, private loginService: LoginService) {}
 
   public albums$: BehaviorSubject<any> = new BehaviorSubject([]);
-  public _albums$: BehaviorSubject<any> = new BehaviorSubject([]);
   public comments$: BehaviorSubject<any> = new BehaviorSubject([]);
   public photos$: BehaviorSubject<any> = new BehaviorSubject([]);
   public posts$: BehaviorSubject<any> = new BehaviorSubject([]);
@@ -28,7 +27,6 @@ export class HttpService {
 
   public setup(): void {
     this.getAlbums();
-    this.albums = this.albums;
     this.getComments();
     this.getPhotos();
     this.getPosts();
@@ -40,17 +38,6 @@ export class HttpService {
     this.http
       .get<Albums[]>(`${constants.url}/${constants.albums}`)
       .subscribe((resp: Albums[]) => this.albums$.next(resp));
-  }
-
-  public get albums() {
-    return this.http.get<Albums[]>(`${constants.url}/${constants.albums}`);
-  }
-
-  public set albums(albums: Observable<Albums[]>) {
-    albums.subscribe({
-      next: (data: Albums[]) => this._albums$.next(data),
-      error: (error: unknown) => console.error(error)
-    })
   }
 
   // rxjs filter

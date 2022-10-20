@@ -8,10 +8,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { SideNavService } from '../../services/side-nav/side-nav.service';
 import { LoginService } from '../../services/login/login.service';
 
-describe('ToolbarComponent', () => {
+fdescribe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
   let login: LoginService;
+  let sideNav: SideNavService;
 
   describe('Test Suite', () => {
     beforeEach(async () => {
@@ -25,6 +26,7 @@ describe('ToolbarComponent', () => {
       component = fixture.componentInstance;
       fixture.detectChanges();
       login = TestBed.inject(LoginService);
+      sideNav = TestBed.inject(SideNavService);
     });
 
     describe('Component', () => {
@@ -50,7 +52,7 @@ describe('ToolbarComponent', () => {
       });
     })
 
-    it('should render the toolbar', () => {
+    it('HTML', () => {
       fixture.detectChanges();
       const toolbar = fixture.debugElement.query(By.css('.toolbar')).nativeElement;
       expect(toolbar).not.toBeNull();
@@ -60,6 +62,19 @@ describe('ToolbarComponent', () => {
       fixture.detectChanges();
       const toolbar = fixture.debugElement.query(By.css('.toolbar')).children;
       expect(toolbar.length).toBe(3);
+    });
+
+    it('should render a title in the span element designated for the title', () => {
+      component.title = 'title';
+      fixture.detectChanges();
+      const title = fixture.debugElement.query(By.css('.title-span'));
+      expect(title.nativeElement.innerHTML).toBe('title');
+    });
+
+    it('should render the spacer span element', () => {
+      fixture.detectChanges();
+      const spacer = fixture.debugElement.query(By.css('.spacer'));
+      expect(spacer).toBeDefined();
     });
 
     it('should render the side nav icon button', () => {
@@ -89,9 +104,15 @@ describe('ToolbarComponent', () => {
       logoutButton.click();
       tick();
       expect(spy).toHaveBeenCalled();
-      login.getLoggedInStatus().subscribe((status: boolean) => {
-        next: () => expect(status).toBeFalse()
-      });
+    }));
+
+    it('should expect the component to trigger the side nav to open', fakeAsync(() => {
+      fixture.detectChanges();
+      let spy = spyOn(sideNav, 'setIsOpen');
+      const sideNavIconButton = fixture.debugElement.query(By.css('.side-nav-icon')).nativeElement;
+      sideNavIconButton.click();
+      tick();
+      expect(spy).toHaveBeenCalled();
     }));
     
   });

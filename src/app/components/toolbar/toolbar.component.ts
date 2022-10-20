@@ -18,7 +18,7 @@ import { SideNavService } from '../../services/side-nav/side-nav.service';
             fontIcon="menu">
           </mat-icon>
         </button>
-        <span>{{ title }}</span>
+        <span class="title-span">{{ title }}</span>
         <span class="spacer"></span>
         <button mat-raised-button
           aria-label="log out button"
