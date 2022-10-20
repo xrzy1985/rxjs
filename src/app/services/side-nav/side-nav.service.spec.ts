@@ -46,16 +46,6 @@ describe('SideNavService', () => {
       expect(service.isOpen).toBeFalse();
     });
 
-    it('should set isOpen to true if null is passed in', () => {
-      service.setIsOpen(null);
-      expect(service.isOpen).toBeTrue();
-    });
-
-    it('should set isOpen to true if undefined is passed in', () => {
-      service.setIsOpen(undefined);
-      expect(service.isOpen).toBeTrue();
-    });
-
     it('should set isOpen to the boolean being passed into the method', () => {
       service.setIsOpen(true);
       expect(service.isOpen).toBeTrue();
