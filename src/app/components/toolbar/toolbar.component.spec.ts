@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SideNavService } from '../../services/side-nav/side-nav.service';
 import { LoginService } from '../../services/login/login.service';
 
-fdescribe('ToolbarComponent', () => {
+describe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
   let login: LoginService;
