@@ -1,6 +1,6 @@
 {
   "name": "rxjs-tutorial",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "scripts": {
     "ng": "ng",
     "this": "ng serve -o --port=4200",
