@@ -22,7 +22,7 @@ import { LoginService } from '../../services/login/login.service';
 import { environment } from '../../../environments/environment';
 import { ErrorHandler } from '../../classes/error-handler';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let loginService: LoginService;
