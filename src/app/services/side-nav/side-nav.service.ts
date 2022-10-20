@@ -11,11 +11,11 @@ export class SideNavService {
 
   public isOpen: boolean;
 
-  getIsOpen(): boolean {
+  public getIsOpen(): boolean {
     return this.isOpen;
   }
 
-  setIsOpen(): void {
+  public setIsOpen(): void {
     this.isOpen = !this.isOpen;
   }
 }
