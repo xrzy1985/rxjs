@@ -252,8 +252,8 @@ export class TestingService {
 
   // find: works the same as array.find, where the first element that meets the criteria is returned
   find$ = of(1, 2, 3, 4, 5, 6).pipe(find((x: number) => x > 99))
-    .pipe((data: Observable<any>) => {
-      data?.subscribe((d: T) => {
+    .pipe((data: Observable<number | undefined>) => {
+      data?.subscribe((d: number | undefined) => {
         console.log('find -> ', d);
       })
       return data;
@@ -284,8 +284,4 @@ export class TestingService {
       })
       return data;
     })
-}
-
-interface T {
-  T: boolean | null | number | object | string | undefined;
 }
