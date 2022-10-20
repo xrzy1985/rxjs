@@ -31,18 +31,6 @@ describe('LoginService', () => {
           expect(data).toBeFalse();
         });
       });
-
-      it('should not set the value of the observable if null or undefined is passed into method', () => {
-        service.setLoggedInStatus(true);
-        service.setLoggedInStatus(null);
-        service.getLoggedInStatus().subscribe((data: boolean) => {
-          expect(data).toBeTrue();
-        });
-        service.setLoggedInStatus(undefined);
-        service.getLoggedInStatus().subscribe((data: boolean) => {
-          expect(data).toBeTrue();
-        });
-      });
     });
 
     describe('getLoggedInStatus', () => {

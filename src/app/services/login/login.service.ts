@@ -11,7 +11,7 @@ export class LoginService {
 
   loggedInStatus$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  public setLoggedInStatus(status: boolean | null | undefined): void {
+  public setLoggedInStatus(status: boolean): void {
     if (status) {
       this.loggedInStatus$.next(status);
     }
