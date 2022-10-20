@@ -22,7 +22,7 @@ export class SignUpComponent extends ErrorHandler {
   protected password = new FormControl('', [Validators.required]);
   protected title: string = environment.title;
 
-  signUp(): void {
+  public signUp(): void {
     if (!this.email.errors && !this.name.errors && !this.password.errors) {
       this.loginService.setLoggedInStatus(true);
       this.router.navigateByUrl('');

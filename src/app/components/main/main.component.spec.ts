@@ -7,7 +7,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 
-fdescribe('MainComponent', () => {
+describe('MainComponent', () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
@@ -63,7 +63,7 @@ fdescribe('MainComponent', () => {
         expect(accordionDiv).not.toBeNull();
       });
 
-      it('should behave...', () => {
+      it('should expect 6 expansion panels within the accordion', () => {
         fixture.detectChanges();
         expect(fixture.debugElement.query(By.css('.mat-accordion')).children.length).toBe(6);
       });

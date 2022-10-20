@@ -1,17 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ActivatedRoute , Router, ParamMap} from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 describe('AppComponent', () => {
+  let route: Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        HttpClientModule,
-        RouterTestingModule
+        HttpClientModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NotFoundComponent
       ],
     }).compileComponents();
   });
