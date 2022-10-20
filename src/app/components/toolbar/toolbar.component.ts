@@ -22,6 +22,7 @@ import { SideNavService } from '../../services/side-nav/side-nav.service';
         <span class="spacer"></span>
         <button mat-raised-button
           aria-label="log out button"
+          class="log-out-button"
           (click)="logout()"
           color="warn"
           *ngIf="loggedIn">
@@ -45,7 +46,7 @@ export class ToolbarComponent {
   protected name: string;
   @Input() title: string;
 
-  logout() {
+  public logout() {
     this.loginService.setLoggedInStatus(false);
   }
 }

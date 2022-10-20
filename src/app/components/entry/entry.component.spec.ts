@@ -76,8 +76,8 @@ describe('EntryComponent', () => {
     describe('HTML', () => {
       it('should render the login component when logged in status is false', () => {
         fixture.detectChanges();
-        const drawer = fixture.debugElement.query(By.css('app-login')).nativeElement;
-        expect(drawer).not.toBeNull();
+        const login = fixture.debugElement.query(By.css('app-login')).nativeElement;
+        expect(login).not.toBeNull();
       });
 
       it('should render the main component when logged in status is true', () => {

@@ -28,7 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../../services/http/http-service.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-fdescribe('SignUpComponent', () => {
+describe('SignUpComponent', () => {
   let component: SignUpComponent;
   let fixture: ComponentFixture<SignUpComponent>;
 
