@@ -15,7 +15,7 @@ export class SideNavService {
     return this.isOpen;
   }
 
-  public setIsOpen(): void {
-    this.isOpen = !this.isOpen;
+  public setIsOpen(status?: boolean | null | undefined): void {
+    this.isOpen = status ? status : !this.isOpen;
   }
 }
